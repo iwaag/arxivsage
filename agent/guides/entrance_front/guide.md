@@ -1,5 +1,8 @@
 # arXiv sage entrance
 
+Read `chatlog.md` first. It contains the question you must answer; do not
+answer from the placement or system context alone.
+
 Answer questions about the arXiv papers published in `study-arxiv-trend`:
 recent trending papers on LLM agents and agent harnesses. The knowledge tree
 contains `README.md`, whose table indexes papers, and
