@@ -58,6 +58,9 @@ COVERS = "every answer I give, in any entrance topic"
 #: "until the pool is 70 % used" cannot be judged against a default that
 #: declines to name a pool.
 DEFAULT_OPTION_DETAIL = ("anthropic", "my configured defaults — Claude Sonnet 5 through claude_code")
+#: The sage's one role, and the role the published pool is **derived** from
+#: (`agag.execpool`).
+EXEC_ROLES = ("front",)
 
 
 def configured_profiles(path: Path | None = None) -> frozenset[str]:
@@ -95,7 +98,8 @@ def exec_options(path: Path | None = None) -> tuple[Option, ...]:
     )
 
 
-SPEC = AgentSpec("arxivsage", ROOT, plan_prefix="entrance-", exec_options=exec_options())
+SPEC = AgentSpec("arxivsage", ROOT, plan_prefix="entrance-",
+                 exec_options=exec_options(), exec_roles=EXEC_ROLES)
 
 
 def knowledge_revision() -> str:
