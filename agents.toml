@@ -3,6 +3,8 @@ project = "arxivsage"
 
 [models."anthropic/claude-sonnet-5"]
 
+[models."antigravity/gemini-3.8-flash-medium"]
+
 [profiles.sonnet]
 harness = "claude_code"
 model = "anthropic/claude-sonnet-5"
@@ -10,6 +12,19 @@ model = "anthropic/claude-sonnet-5"
 [profiles.stub]
 harness = "fake"
 model = "anthropic/claude-sonnet-5"
+
+# Google's Antigravity CLI (`agy`), headless. The catalog is the Antigravity
+# account's, so the provider is `antigravity` and the record says which model
+# ran (Agent ≠ Model). The CLI carries its own OAuth token; a run reports
+# tokens, no cost.
+#
+# This is the profile behind the sage's one published alternative
+# (`listener.PUBLIC_PROFILES`). It changes which harness reads the knowledge
+# tree and writes the answer — never the tree itself, which the sage does not
+# maintain either way.
+[profiles.agy]
+harness = "agy"
+model = "antigravity/gemini-3.8-flash-medium"
 
 # Every role carries its own tool grant (claude_code's --allowedTools).
 # Without one claude_code waits on a permission prompt until the timeout.
